@@ -1,0 +1,48 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="offset-1 col-md-10">
+              <div class="card">
+                  <div class="card-header card-header-warning">
+                      <h4 class="card-title">Edit Profile</h4>
+                  </div>
+                  <div class="card-body">
+                      <form class="updateForm">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email address" type="email" [(ngModel)]="loggedUserObj.email" #email="ngModel" name="email">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fist Name" type="text" disabled [(ngModel)]="loggedUserObj.firstName" #firstName="ngModel" name="firstName">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Last Name" type="text" disabled [(ngModel)]="loggedUserObj.lastName" #lastName="ngModel" name="lastName">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Change password" type="password" [(ngModel)]="loggedUserObj.password" #password="ngModel" name="password">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-info" (click)="openDialog()" >Capture Image</button>
+                          <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="updateProfile()">Update Profile</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

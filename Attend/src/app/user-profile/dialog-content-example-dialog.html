@@ -1,0 +1,28 @@
+<h2 mat-dialog-title></h2>
+<mat-dialog-content class="mat-typography">
+    <div class="card-body">
+        <div class="container vh-100">
+            <div class="d-flex flex-column align-items-center">
+                <div class="row">
+                    <div class="p-1">
+                        <video #video id="video" class="vid" style="height: 50% ; width: 60%; !important;" autoplay></video>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="p-1">
+                        <canvas #canvas class="vid1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="cap()">Capture</button>
+</mat-dialog-actions>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

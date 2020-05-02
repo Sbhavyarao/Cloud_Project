@@ -1,0 +1,42 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title ">Attendance </h4>
+          </div>
+          <br>
+          <div class="card-body" *ngIf="loggedUserObj!= null && loggedUserObj.typeOfUser == 'Student'">
+            <mat-form-field >
+              <input matInput  [matDatepicker]="picker1" placeholder="Choose date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Enter the code" type="text" [(ngModel)]="studentCode">
+            </mat-form-field>
+          </div>
+          <div class="card-body" *ngIf="loggedUserObj!= null && loggedUserObj.typeOfUser == 'Professor'">
+            <button mat-raised-button type="submit"  class="btn btn-info" (click)="generateCode()">Generate Code</button>
+            <mat-form-field class="example-full-width" *ngIf="code">
+              <input matInput placeholder="Enter the code" type="text" [(ngModel)]="code" disabled>
+            </mat-form-field>
+          </div>
+          <div class="row" *ngIf="loggedUserObj!= null && loggedUserObj.typeOfUser == 'Student'">
+            <div class="offset-2 col-sm-3">
+              <button mat-raised-button type="submit"  class="btn btn-info pull-right" (click)="markAttendance()">Mark Attendance</button>
+            </div>
+            <div class="offset-1 col-sm-3">
+              <button mat-raised-button type="submit"  class="btn btn-info pull-right" (click)="capturePhoto()">Capture Photo</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img *ngIf="imageString" [src]="imageString" alt="imageString">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

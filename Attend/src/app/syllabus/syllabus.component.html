@@ -1,0 +1,82 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title ">Syllabus </h4>
+            <p class="card-category"> Enter the weekly syllabus</p>
+          </div>
+          <br>
+          <div class="row">
+            <div class="offset-10 col-md-2">
+              <button mat-raised-button type="submit" (click)="addNewCourseByWeek()" class="btn btn-warning pull-right" ><i class="fa fa-plus" aria-hidden="true"></i>
+                Add new week</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                <th>
+                  Week
+                </th>
+                <th>
+                  From
+                </th>
+                <th>
+                  To
+                </th>
+                <th>
+                  Courses
+                </th>
+                <th>
+                </th>
+                </thead>
+                <tbody *ngFor="let courseByWeek of courseByWeekArray ;  let $weekIndex = index">
+                <tr>
+                  <td>
+                    {{courseByWeek.week}}
+                  </td>
+                  <td>
+                    <mat-form-field >
+                      <input matInput  [matDatepicker]="picker1" [(ngModel)]="courseByWeek.fromDate" placeholder="Choose from date">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field >
+                      <input matInput  [matDatepicker]="picker2" [(ngModel)]="courseByWeek.toDate" placeholder="Choose to date">
+                      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                      <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Enter the courses" [(ngModel)]="courseByWeek.courses" type="text">
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <button mat-raised-button type="submit" (click)="removeCourseByWeek($weekIndex)" class="btn btn-warning">
+                      <i class="fa fa-times" aria-hidden="true"></i></button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="offset-4 col-sm-3">
+              <button mat-raised-button type="submit" (click)="addSchedule()" class="btn btn-warning pull-right">Add Schedule</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

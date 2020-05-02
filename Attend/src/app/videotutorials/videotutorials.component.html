@@ -1,0 +1,44 @@
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="offset-3 col-md-5">
+        <!--<form role="search">
+            <div class="form-group form-black is-empty">
+                <input type="text" class="form-control" name="searchedCourse" [(ngModel)]="searchedCourse" placeholder="Search for any course">
+            </div>
+        </form>-->
+        <form role="search">
+                <div class="form-group form-black is-empty">
+                    <input type="text" [(ngModel)]="searchedCourse" placeholder="Search for any course" class="form-control" name="searchedCourse"matInput  [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+        </form>
+    </div>
+    <div class="col-md-3">
+        <button mat-raised-button  (click)="searchCourseVideos()" style="background: darkorange; color: whitesmoke"> <i class="material-icons">search</i><div class="ripple-container"></div> Search</button>
+    </div>
+</div>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-2 col-md-9">
+                <div class="card">
+                    <div *ngIf="videoAvailable" >
+                        <div class="card-body" *ngFor="let video of videoArray">
+                            <div class="iframe-container d-none d-lg-block" *ngIf="video.videoId">
+                                <h4>{{video.title}}</h4>
+                                <iframe width="300" height="315" [src]="video.videoId" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
